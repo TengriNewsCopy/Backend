@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/news', [App\Http\Controllers\NewsController::class, 'index']);
+Route::get('/tags', [App\Http\Controllers\NewsController::class, 'tags']);

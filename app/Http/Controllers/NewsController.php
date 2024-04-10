@@ -18,4 +18,21 @@ class NewsController extends Controller
             'message' => 'News retrieved successfully.'
         ]);
     }
+
+    public function tags(): JsonResponse
+    {
+        $news = News::all();
+        $result = [];
+
+        foreach ($news as $item) {
+            $tags = $item->tags;
+            $result[] = $tags;
+        }
+
+        return response()->json([
+            'data' => $result,
+            'status' => 'success',
+            'message' => 'Tags retrieved successfully.'
+        ]);
+    }
 }
