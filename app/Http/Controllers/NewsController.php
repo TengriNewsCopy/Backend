@@ -26,7 +26,7 @@ class NewsController extends Controller
 
         foreach ($news as $item) {
             $tags = $item->tags;
-            $result[] = $tags;
+            $result = array_merge($result, $tags);
         }
 
         return response()->json([
