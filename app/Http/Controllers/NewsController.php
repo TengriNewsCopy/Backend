@@ -19,6 +19,17 @@ class NewsController extends Controller
         ]);
     }
 
+    public function show(int $id): JsonResponse
+    {
+        $result = News::find($id);
+
+        return response()->json([
+            'data' => $result,
+            'status' => 'success',
+            'message' => 'News retrieved successfully.'
+        ]);
+    }
+
     public function tags(): JsonResponse
     {
         $news = News::all();
